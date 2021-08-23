@@ -1,14 +1,9 @@
 {
   "movements": [
     {
-      "movementName": "squat",
-      "movementWeight": "2005",
-      "id": 1
-    },
-    {
       "movementName": "bench",
-      "movementWeight": "200",
-      "id": 2
+      "movementWeight": "122",
+      "id": 1
     }
   ]
 }
