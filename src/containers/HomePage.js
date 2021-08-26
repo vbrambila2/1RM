@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FabButton from '../components/FabButton';
 import MovementList from './MovementList';
 import MovementsList from './FetchedMovements';
+//import FetchApi from './FetchApi';
  
 const useStyles = makeStyles((theme) => ({
    homePageContent: {
@@ -20,6 +21,7 @@ const HomePage = (props) => {
        <div className={classes.homePageContent} >
             <Header title={"One Rep Max"}/>
             <div>
+                {/* <FetchApi /> */}
                 <MovementsList />
                 <MovementList />
             </div>

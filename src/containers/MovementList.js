@@ -27,7 +27,7 @@ const MovementList = (props) => {
     const mapNames = props.move.map((movement) => {
         return (
             <Button 
-                key={movement.movementName}
+                key={movement.id}
                 className={classes.movementButtons} 
                 onClick={() => history.push(`/movement/${movement.id}/${movement.movementName}/${movement.movementWeight}`)}
             >
@@ -36,7 +36,7 @@ const MovementList = (props) => {
         )}
     );
     const displayMovementButtons = () => {
-        if (mapNames.length === 0) {    
+        if (mapNames.length ===0) {    
             return <div className={classes.noMovementsMessage} >Click add button to begin</div> 
         };
 

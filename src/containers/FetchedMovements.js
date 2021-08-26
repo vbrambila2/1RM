@@ -20,7 +20,7 @@ class MovementsList extends React.Component {
 
     render() {
         const displayListedMovements = () => {
-            if (this.props.move.length === 0) {
+            if (this.props.move.length ===0) {
                 return <div></div>
             }
 
