@@ -60,6 +60,7 @@ const DeletePage = () => {
                                 value={move.movementName}
                                 label="Movement to be Deleted"
                                 variant="outlined"
+                                style={{ width:200 }}
                             />
                         </div>
                         <div className={classes.buttonDiv}>

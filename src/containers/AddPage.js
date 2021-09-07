@@ -52,13 +52,15 @@ const AddPage = () => {
                                 name="movementName"
                                 variant="outlined"
                                 label="Movement Name" 
+                                style={{ width:200 }}
                                 value={moveData.movementName}
                                 onChange={(e) => setMoveData({ ...moveData, movementName: e.target.value })}
                             />
                             <TextField
                                 name="movementWeight" 
                                 variant="outlined"
-                                label="One Rep Max" 
+                                label="One Rep Max"
+                                style={{ width:200 }} 
                                 value={moveData.movementWeight}
                                 InputProps={{endAdornment: <InputAdornment position="end">lb</InputAdornment>}}
                                 onChange={(e) => setMoveData({ ...moveData, movementWeight: e.target.value })}

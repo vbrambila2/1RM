@@ -65,6 +65,7 @@ const UpdatePage = () => {
                                 name="movementName"
                                 variant="outlined"
                                 label="Movement Name" 
+                                style={{ width:200 }}
                                 value={move.movementName}
                                 onChange={(e) => setMoveData({ ...moveData, movementName: e.target.value })}
                             />
@@ -72,6 +73,7 @@ const UpdatePage = () => {
                                 name="movementWeight" 
                                 variant="outlined"
                                 label="New One Rep Max" 
+                                style={{ width:200 }}
                                 InputProps={{endAdornment: <InputAdornment position="end">lb</InputAdornment>}}
                                 onChange={(e) => setMoveData({ ...moveData, movementWeight: e.target.value })}
                             />
