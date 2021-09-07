@@ -2,9 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import { makeStyles } from '@material-ui/core/styles';
 import FabButton from '../components/FabButton';
-import MovementList from './MovementList';
-import MovementsList from './FetchedMovements';
-//import FetchApi from './FetchApi';
+import FetchedMovements from './FetchedMovements';
+import MoveButtons from './MoveButtons';
  
 const useStyles = makeStyles((theme) => ({
    homePageContent: {
@@ -21,9 +20,8 @@ const HomePage = (props) => {
        <div className={classes.homePageContent} >
             <Header title={"One Rep Max"}/>
             <div>
-                {/* <FetchApi /> */}
-                <MovementsList />
-                <MovementList />
+                <FetchedMovements />
+                <MoveButtons />
             </div>
             <FabButton />
        </div>

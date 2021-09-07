@@ -1,30 +1,47 @@
-import * as constants from './constants';
+import * as api from '../api';
+import { UPDATE_MOVEMENT, DELETE_MOVEMENT, CREATE_MOVEMENT, FETCH_MOVEMENTS } from './constants'
 import history from '../history';
-import movements from '../apis/movements';
 
-export const createMovement = formValues => async dispatch => {
-    history.push('/')
-    const response = await movements.post('/movements', formValues);
+export const fetchMovements = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchMovements();
 
-    dispatch({ type: constants.CREATE_MOVEMENT, payload: response.data })
+        dispatch({ type: FETCH_MOVEMENTS, payload: data });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
-export const updateMovement = (id, formValues) => async dispatch => {
+export const createMovement = (move) => async (dispatch) => {
     history.push('/')
-    const response = await movements.patch(`/movements/${id}`, formValues);
+    try {
+        const { data } = await api.createMovement(move);
 
-    dispatch({ type: constants.UPDATE_MOVEMENT, payload: response.data });
+        dispatch({ type: CREATE_MOVEMENT, payload: data })
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
-export const deleteMovement = id => async dispatch => {
-    history.push('/')
-    await movements.delete(`/movements/${id}`);
+export const updateMovement = (id, move) => async (dispatch) => {
+    try {
+        const { data } = await api.updateMovement(id, move);
+        
+        dispatch ({ type: UPDATE_MOVEMENT, payload: data });
 
-    dispatch({ type: constants.DELETE_MOVEMENT, payload: id })
+       history.push('/')
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
-export const fetchMovements = () => async dispatch => {
-    const response = await movements.get('/movements');
+export const deleteMovement = (id) => async (dispatch) => {
+    history.push('/')
+    try {
+        await api.deleteMovement(id);
 
-    dispatch ({ type: constants.FETCH_MOVEMENTS, payload: response.data });
-}
+        dispatch ({ type: DELETE_MOVEMENT, payload: id });
+    } catch (error) {
+        console.log(error.message);
+    }
+};

@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { makeStyles } from '@material-ui/core/styles';
-import { updateMovement } from '../actions/index';
-import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateMovement } from '../actions';
+import { TextField, Button, InputAdornment } from '@material-ui/core';
 import { useLocation } from 'react-router';
 
 const useStyles = makeStyles(() => ({
     updatePage: {
-        marginTop: '150px',
         display: 'flex',
         justifyContent: 'center',
-        fontFamily: 'PT Sans Caption',
+        marginTop: '100px'
     },
     updateMovementDiv: {
         background: '#C4C4C4',
@@ -19,46 +18,40 @@ const useStyles = makeStyles(() => ({
         fontSize: '18px',
         borderRadius: '10px',
         padding: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        textAlign: 'right',
-      },
+        marginTop: '50px',
+        textAlign: 'center',
+    },
+    textDiv: {
+        background: '#ffffff',
+        padding: '8px',
+        borderRadius: '10px',
+    },
+    buttonDiv: {
+        paddingTop: '20px',
+    }
 }));
 
-const NameLocationFunction = () => {
-    const location = useLocation();
-    const pathArray = location.pathname.split('/');
-    const movementNameURL = (pathArray[3]);
-    return movementNameURL
-};
-
-const renderInputName = ({ input, label }) => {
-    return (
-        <div>
-            <label>{label}: </label>
-            <input {...input} type="text" value={NameLocationFunction()} /> 
-        </div>    
-    )  
-};
-
-const renderNewInputWeight = ({ input, label }) => {
-    return (
-        <div>
-            <label>{label}: </label>
-            <input {...input} type="number" /> 
-        </div>    
-    )  
-};
-
-const UpdatePage = (props) => {
+const UpdatePage = () => {
     const classes = useStyles();
     const location = useLocation();
     const pathArray = location.pathname.split('/');
     const movementIDURL = (pathArray[2]);
-    const selected = props.move.find(move => move.id === Number(movementIDURL));
-    const selectedID = selected.id
-    const onSubmit = formValues => {
-        props.updateMovement(selectedID, formValues)
+    const [moveData, setMoveData] = useState({ movementName:'', movementWeight: '' });
+    const dispatch = useDispatch(); 
+    const move = useSelector((state) => movementIDURL ? state.movements.find((p) => p._id === movementIDURL) : null);
+
+    useEffect(() => {
+        if(move) setMoveData(move)
+    }, [move]);
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(movementIDURL) {
+            dispatch(updateMovement(movementIDURL, moveData));
+        } else {
+            console.log("no currentId");
+        }
     };
 
     return (
@@ -66,39 +59,31 @@ const UpdatePage = (props) => {
             <Header title="Update Movement" />
             <div className={classes.updatePage}>
                 <div className={classes.updateMovementDiv}>
-                <form onSubmit={props.handleSubmit(onSubmit)}>
-                    <Field 
-                        name="movementName"
-                        label="Movement Selected"
-                        component={renderInputName} 
-                    />
-                    <Field
-                        name="movementWeight"  
-                        label="New One Rep Max" 
-                        component={renderNewInputWeight}
-                    />
-                    <button>Update</button>
-                </form>
+                    <form onSubmit={handleSubmit} >
+                        <div className={classes.textDiv}>
+                            <TextField 
+                                name="movementName"
+                                variant="outlined"
+                                label="Movement Name" 
+                                value={move.movementName}
+                                onChange={(e) => setMoveData({ ...moveData, movementName: e.target.value })}
+                            />
+                            <TextField
+                                name="movementWeight" 
+                                variant="outlined"
+                                label="New One Rep Max" 
+                                InputProps={{endAdornment: <InputAdornment position="end">lb</InputAdornment>}}
+                                onChange={(e) => setMoveData({ ...moveData, movementWeight: e.target.value })}
+                            />
+                        </div>
+                         <div className={classes.buttonDiv}>
+                            <Button variant="contained" type="submit" fullWidth  >Update</Button>
+                         </div>
+                    </form>
                 </div>
             </div>
         </div>
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        move: state.move
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    return ({
-        updateMovement: (selectedID, formValues) => dispatch(updateMovement(selectedID, formValues)),
-    })
-};
-
-const formWrap = reduxForm({
-    form: 'updateMovementForm',
-})(UpdatePage);
-
-export default connect(mapStateToProps, mapDispatchToProps)(formWrap);
+export default UpdatePage;

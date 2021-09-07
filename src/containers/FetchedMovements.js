@@ -1,39 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { fetchMovements } from '../actions';
-import { withStyles } from '@material-ui/styles';
 
-const styles = theme => ({
-    homePageTitle: {
-        fontSize: '20px',
-        fontFamily: 'PT Sans Caption',
-        marginTop: '100px',
-        display: 'flex',
-        justifyContent: 'center'
-    }
-  });
+const FetchedMovements = () => {
+    const dispatch = useDispatch();
 
-class MovementsList extends React.Component {
-    componentDidMount() {
-        this.props.fetchMovements();
-    }
+   useEffect(() => {
+        dispatch(fetchMovements());
+    }, [dispatch]);
 
-    render() {
-        const displayListedMovements = () => {
-            if (this.props.move.length ===0) {
-                return <div></div>
-            }
-
-            return <div className={this.props.classes.homePageTitle}>Listed Movements:</div>
-        }
-        return (
-            <div>{displayListedMovements()}</div>
-        )
-    }
+    return (
+        <div>Movements were fetched</div>
+    )
 }
 
-const mapStateToProps = (state) => {
-    return { move: Object.values(state.move) };
-}
-
-export default connect(mapStateToProps, { fetchMovements })(withStyles(styles)(MovementsList));
+export default FetchedMovements;

@@ -1,10 +1,11 @@
 import React from 'react';
 import Header from '../components/Header';
 import { makeStyles } from '@material-ui/core/styles';
-import { deleteMovement } from '../actions/index';
-import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { deleteMovement } from '../actions';
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router';
+import { TextField, Button } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles(() => ({
     deletePage: {
@@ -21,35 +22,30 @@ const useStyles = makeStyles(() => ({
         padding: '20px',
         display: 'flex',
         flexDirection: 'column',
-        textAlign: 'right',
+        textAlign: 'center',
+    },
+    textDiv: {
+        background: '#ffffff',
+        padding: '8px',
+        borderRadius: '10px',
+        textAlign: 'center',
+    },
+    buttonDiv: {
+        paddingTop: '20px'
     }
 }));
 
-const NameLocationFunction = () => {
-    const location = useLocation();
-    const pathArray = location.pathname.split('/');
-    const movementNameURL = (pathArray[3]);
-    return movementNameURL
-};
-
-const renderInputName = ({ input, label }) => {
-    return (
-        <div>
-            <label>{label}:   </label>  
-            <input {...input} readOnly autoFocus={true} type="text" value={NameLocationFunction()} /> 
-        </div>    
-    )  
-};
-
-const DeletePage = (props) => {
+const DeletePage = () => {
     const classes = useStyles();
+    const dispatch = useDispatch(); 
     const location = useLocation();
     const pathArray = location.pathname.split('/');
     const movementIDURL = (pathArray[2]);
-    const selected = props.move.find(move => move.id === Number(movementIDURL));
-    const selectedID = selected.id
-    const onSubmit = (formValues) => {
-        props.deleteMovement(selectedID, formValues)
+    const move = useSelector((state) => movementIDURL ? state.movements.find((p) => p._id === movementIDURL) : null);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(deleteMovement(move._id));
     };
 
     return (
@@ -57,13 +53,18 @@ const DeletePage = (props) => {
             <Header title="Delete Movement" />
             <div className={classes.deletePage}>
                 <div className={classes.deleteMovementDiv}>
-                    <form onSubmit={props.handleSubmit(onSubmit)}>
-                        <Field 
-                            name="movementName"
-                            component={renderInputName} 
-                            label="Movement to be Deleted"
-                        />
-                        <button>Delete</button>
+                    <form onSubmit={handleSubmit}>
+                        <div className={classes.textDiv}>
+                            <TextField 
+                                name="movementName"
+                                value={move.movementName}
+                                label="Movement to be Deleted"
+                                variant="outlined"
+                            />
+                        </div>
+                        <div className={classes.buttonDiv}>
+                            <Button variant="contained" type="submit" endIcon={<DeleteIcon />} fullWidth >Delete</Button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -71,20 +72,4 @@ const DeletePage = (props) => {
     );
 };
 
-const mapStateToProps = state => {
-    return {
-        move: state.move,
-    };
-  };
-
-  const mapDispatchToProps = (dispatch) => {
-    return({
-        deleteMovement: (selectedID, formValues) => dispatch(deleteMovement(selectedID, formValues)),
-    })
-};
-
-const formWrap = reduxForm({
-    form: 'deleteMovementForm',
-})(DeletePage);
-
-export default connect(mapStateToProps, mapDispatchToProps)(formWrap);
+export default DeletePage;
