@@ -5,16 +5,10 @@ import bodyParser from 'body-parser';
 import movementRoutes from './routes/movements.js';
 import dotenv from 'dotenv';
 
-const corsOptions ={
-   origin:'*', 
-   credentials:true,       
-   optionSuccessStatus:200,
-}
-
 const app = express();
 dotenv.config();
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use('/movements', movementRoutes);
 
