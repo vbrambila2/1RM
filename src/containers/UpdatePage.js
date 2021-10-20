@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateMovement } from '../actions';
 import { TextField, Button, InputAdornment } from '@material-ui/core';
 import { useLocation } from 'react-router';
+import LoopIcon from '@material-ui/icons/Loop';
 
 const useStyles = makeStyles(() => ({
     updatePage: {
@@ -19,7 +20,6 @@ const useStyles = makeStyles(() => ({
         borderRadius: '10px',
         padding: '20px',
         marginTop: '50px',
-        textAlign: 'center',
     },
     textDiv: {
         background: '#ffffff',
@@ -79,7 +79,7 @@ const UpdatePage = () => {
                             />
                         </div>
                          <div className={classes.buttonDiv}>
-                            <Button variant="contained" type="submit" fullWidth  >Update</Button>
+                            <Button variant="contained" type="submit" fullWidth endIcon={<LoopIcon />} >Update</Button>
                          </div>
                     </form>
                 </div>

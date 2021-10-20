@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
    }
 }));
  
-const HomePage = (props) => {
+const HomePage = () => {
    const classes = useStyles();
   
    return (

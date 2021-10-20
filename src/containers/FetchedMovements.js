@@ -10,7 +10,7 @@ const FetchedMovements = () => {
     }, [dispatch]);
 
     return (
-        <div>Movements were fetched</div>
+        <div></div>
     )
 }
 
