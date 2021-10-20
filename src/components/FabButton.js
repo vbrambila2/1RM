@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
         right: theme.spacing(2),
       },
     fab: {
-        background: '#C4C4C4',
+        background: '#00BFFF',
+        color: '#F8F8F8',
     },
 }));
 

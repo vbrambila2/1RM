@@ -12,11 +12,16 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'PT Sans Caption',
         marginTop: '30px',
         borderRadius: '10px',
-        background: '#C4C4C4',
-        boxShadow: '0px 2px 2px #A9A9A9',
+        background: '#00ace6',
+        color: '#F8F8F8',
+        boxShadow: '0px 1px 1px #006bb3',
+        textShadow: '1px 1px #000000',
         width: '400px',
         display: 'flex',
         flexDirection: 'column',
+        '&:hover': {
+            backgroundColor: '#0099cc',
+        },
     },
     noMovementsMessage: {
         marginTop: '130px',
@@ -34,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
             width: '300px',
             display: 'flex',
             flexDirection: 'column',
+            '&:hover': {
+                backgroundColor: '#0099cc',
+            },
         },
     },
 }));

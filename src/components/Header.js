@@ -6,9 +6,11 @@ import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
     homeHeader: {
-        background: '#C4C4C4',
+        background: '#00BFFF',
         textAlign: 'center',
-        boxShadow: '0px 2px 2px #A9A9A9',
+        boxShadow: '0px 1px 1px #006bb3',
+        color: '#F8F8F8',
+        textShadow: '1px 1px #000000',
         fontFamily: 'PT Sans Caption',
         fontSize: '36px',
         marginBottom: '20px',
@@ -22,9 +24,11 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 9999
     },
     header: {
-        background: '#C4C4C4',
+        background: '#00BFFF',
         textAlign: 'center',
-        boxShadow: '0px 2px 2px #A9A9A9',
+        boxShadow: '0px 1px 1px #006bb3',
+        color: '#F8F8F8',
+        textShadow: '1px 1px #000000',
         fontFamily: 'PT Sans Caption',
         fontSize: '36px',
         marginBottom: '20px',
@@ -40,21 +44,30 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 9999
     },
     homeButton: {
-        boxShadow: '0px 2px 2px #A9A9A9',
+        background: '#33ccff',
+        boxShadow: '2px 2px 1px #006bb3',
+        color: '#F8F8F8',
+        textShadow: '1px 1px #000000',
         fontFamily: 'PT Sans Caption',
         fontSize: '20px',
         marginLeft: '10px',
         marginBottom: '10px',
         marginTop: '5px',
         borderRadius: '10px',
-        width: '100px'
+        width: '100px',
+        '&:hover': {
+            backgroundColor: '#00ace6',
+        },
     },
     fakeText: {
         visibility: 'hidden',
     },
     [theme.breakpoints.down('sm')]: {
         homeButton: {
-            boxShadow: '0px 2px 2px #A9A9A9',
+            background: '#33ccff',
+            boxShadow: '2px 2px 1px #006bb3',
+            color: '#F8F8F8',
+            textShadow: '1px 1px #000000',
             fontFamily: 'PT Sans Caption',
             fontSize: '10px',
             marginLeft: '10px',
@@ -62,11 +75,16 @@ const useStyles = makeStyles((theme) => ({
             marginTop: '5px',
             borderRadius: '10px',
             width: '50px',
+            '&:hover': {
+                backgroundColor: '#00ace6',
+            },
         },
         header: {
-            background: '#C4C4C4',
+            background: '#00BFFF',
             textAlign: 'center',
-            boxShadow: '0px 2px 2px #A9A9A9',
+            boxShadow: '0px 1px 1px #006bb3',
+            color: '#F8F8F8',
+            textShadow: '1px 1px #000000',
             fontFamily: 'PT Sans Caption',
             fontSize: '28px',
             paddingTop: '20px',
