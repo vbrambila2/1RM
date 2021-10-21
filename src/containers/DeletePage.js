@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
         fontFamily: 'PT Sans Caption',
     },
     deleteMovementDiv: {
-        background: '#C4C4C4',
+        background: '#00BFFF',
         fontFamily: 'PT Sans Caption',
         fontSize: '18px',
         borderRadius: '10px',
@@ -30,8 +30,47 @@ const useStyles = makeStyles(() => ({
         borderRadius: '10px',
         textAlign: 'center',
     },
+    textFieldDiv: {
+        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#00BFFF"
+          },
+          "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            borderColor: "black"
+          },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: "black"
+          },
+          "& .MuiOutlinedInput-input": {
+            color: "black"
+          },
+          "&:hover .MuiOutlinedInput-input": {
+            color: "black"
+          },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
+            color: "black"
+          },
+          "& .MuiInputLabel-outlined": {
+            color: "grey"
+          },
+          "&:hover .MuiInputLabel-outlined": {
+            color: "black"
+          },
+          "& .MuiInputLabel-outlined.Mui-focused": {
+            color: "black"
+          }
+    },
     buttonDiv: {
         paddingTop: '20px'
+    },
+    deleteButton: {
+        background: '#33ccff',
+        boxShadow: '2px 2px 1px #006bb3',
+        color: '#F8F8F8',
+        textShadow: '1px 1px #000000',
+        fontFamily: 'PT Sans Caption',
+        '&:hover': {
+            backgroundColor: '#00ace6',
+        }, 
     }
 }));
 
@@ -56,6 +95,7 @@ const DeletePage = () => {
                     <form onSubmit={handleSubmit}>
                         <div className={classes.textDiv}>
                             <TextField 
+                                className={classes.textFieldDiv}
                                 name="movementName"
                                 value={move.movementName}
                                 label="Movement to be Deleted"
@@ -64,7 +104,7 @@ const DeletePage = () => {
                             />
                         </div>
                         <div className={classes.buttonDiv}>
-                            <Button variant="contained" type="submit" endIcon={<DeleteIcon />} fullWidth >Delete</Button>
+                            <Button className={classes.deleteButton} variant="contained" type="submit" endIcon={<DeleteIcon />} fullWidth >Delete</Button>
                         </div>
                     </form>
                 </div>
