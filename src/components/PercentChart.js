@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import UpdateButton from './UpdateButton';
 import DeleteButton from './DeleteButton';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     oneRepMaxWeight: {
         display: 'flex',
         alignItems: 'center',
@@ -19,7 +19,9 @@ const useStyles = makeStyles(() => ({
         padding: '5px',
     },
     oneRepMaxChart: {
-        background: '#C4C4C4',
+        background: '#FFFFFF',
+        //borderStyle: 'solid',
+        //borderColor: '#000000',
         borderRadius: '10px',
         borderCollapse: 'separate',
         borderSpacing: '10px',
@@ -27,15 +29,18 @@ const useStyles = makeStyles(() => ({
         flexDirection: 'column',
     },
     chartHeader: {
-        borderRadius: '10px',
         padding: '5px',
         fontSize: '24px', 
         display: 'flex',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        fontFamily: 'PT Sans Caption',
+        color: '#000000',
+        textTransform: 'uppercase',
     },
     chartBox: {
-        background: '#E7E7E7',
-        border: '1px solid #C4C4C4',
+        background: '#FFFFFF',
+        border: '1px solid #000000',
+        color: '#000000',
         padding: '5px',
         fontSize: '24px',
         display: 'flex',
@@ -45,8 +50,22 @@ const useStyles = makeStyles(() => ({
     buttons: {
         display: 'flex',
         justifyContent: 'center',
-        paddingBottom: '20px'
-    }
+        paddingBottom: '20px',
+    },
+    [theme.breakpoints.down('sm')]: {
+        oneRepMaxWeight: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '10px',
+            fontFamily: 'PT Sans Caption',
+            fontSize: '18px',
+            marginTop: '120px'
+        },
+        oneRepMaxWeightNumber: {
+            padding: '5px',
+        },
+    },
 }));
 
 const PercentChart = (props) => {

@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         zIndex: 9999
     },
+    homeHeaderCaption: {
+        fontSize: '15px'
+    },
     header: {
         background: '#00BFFF',
         textAlign: 'center',
@@ -81,7 +84,6 @@ const useStyles = makeStyles((theme) => ({
         },
         header: {
             background: '#00BFFF',
-            textAlign: 'center',
             boxShadow: '0px 1px 1px #006bb3',
             color: '#F8F8F8',
             textShadow: '1px 1px #000000',
@@ -95,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
             left: 0,
             width: '100%',
             display: 'flex',
-            justifyContent: 'space-between',
+            alignItems: 'center',
             zIndex: 9999
         },
     }
@@ -103,7 +105,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = (props) => {
     const classes = useStyles();
-    const [ title ] = useState(props.title)
+    const [ title ] = useState(props.title);
+    const [ titleCaption ] = useState(props.titleCaption);
     const location = useLocation();
     const pathArray = location.pathname.split('/');
     const homePageURL = (pathArray[1]);
@@ -113,30 +116,10 @@ const Header = (props) => {
         return (
             <div className={classes.homeHeader}>
                 {title}
+                <div className={classes.homeHeaderCaption}>{titleCaption}</div>
              </div>
         )
-    } else if (title === 'Delete Movement') {
-        return (
-            <div className={classes.header}>
-                <div>
-                    <Button
-                        className={classes.homeButton}
-                        variant="contained"
-                        onClick={() => history.push("/")}>   
-                        Home
-                    </Button>
-                    <Button 
-                        className={classes.homeButton}
-                        variant="contained" 
-                        onClick={() => history.goBack()} >
-                        Back
-                    </Button>
-                </div>
-                {title}
-                <div className={classes.fakeText}>----------------</div>
-            </div>
-        )
-    } else if (title === 'Update Movement') {
+    } else if (title === 'Delete Movement' || 'Update Movement') {
         return (
             <div className={classes.header}>
                 <div>

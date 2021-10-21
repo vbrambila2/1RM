@@ -4,7 +4,7 @@ import PercentChart from '../components/PercentChart';
 import { useLocation } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     notFound: {
         marginTop: '130px',
         fontSize: '24px',

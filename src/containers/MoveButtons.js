@@ -6,13 +6,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     buttonsSpacing: {
-        marginTop: '100px'
+        marginTop: '120px'
     },
     movementButtons: {
         fontFamily: 'PT Sans Caption',
         marginTop: '30px',
         borderRadius: '10px',
-        background: '#00ace6',
+        background: '#00BFFF',
         color: '#F8F8F8',
         boxShadow: '0px 1px 1px #006bb3',
         textShadow: '1px 1px #000000',
@@ -34,8 +34,9 @@ const useStyles = makeStyles((theme) => ({
             fontFamily: 'PT Sans Caption',
             marginTop: '30px',
             borderRadius: '10px',
-            background: '#C4C4C4',
-            boxShadow: '0px 2px 2px #A9A9A9',
+            background: '#00BFFF',
+            boxShadow: '0px 1px 1px #006bb3',
+            textShadow: '1px 1px #000000',
             width: '300px',
             display: 'flex',
             flexDirection: 'column',

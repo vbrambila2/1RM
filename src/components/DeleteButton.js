@@ -5,13 +5,18 @@ import { useLocation } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
     updateButton: {
-        boxShadow: '0px 2px 2px #A9A9A9',
-        background: '#e0e0e0',
         borderRadius: '10px',
         width: '10%',
         textAlign: 'center',
         marginLeft: '5px',
         marginRight: '5px',
+        background: '#00BFFF',
+        color: '#F8F8F8',
+        boxShadow: '0px 1px 1px #006bb3',
+        textShadow: '1px 1px #000000',
+        '&:hover': {
+            backgroundColor: '#0099cc',
+        },
     },
 }));
 
