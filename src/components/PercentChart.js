@@ -20,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
     },
     oneRepMaxChart: {
         background: '#FFFFFF',
-        //borderStyle: 'solid',
-        //borderColor: '#000000',
         borderRadius: '10px',
         borderCollapse: 'separate',
         borderSpacing: '10px',

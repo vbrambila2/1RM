@@ -109,17 +109,17 @@ const Header = (props) => {
     const [ titleCaption ] = useState(props.titleCaption);
     const location = useLocation();
     const pathArray = location.pathname.split('/');
-    const homePageURL = (pathArray[1]);
+    const url = (pathArray[1]);
     const history = useHistory();
 
-    if (homePageURL === '') {
+    if (url === '') {
         return (
             <div className={classes.homeHeader}>
                 {title}
                 <div className={classes.homeHeaderCaption}>{titleCaption}</div>
              </div>
         )
-    } else if (title === 'Delete Movement' || 'Update Movement') {
+    } else if (title === 'Delete Movement' || title === 'Update Movement') {
         return (
             <div className={classes.header}>
                 <div>
@@ -153,7 +153,7 @@ const Header = (props) => {
                 <div className={classes.fakeText}>-------</div>
             </div>
         )
-    }
+    } 
 };
 
 export default Header;
