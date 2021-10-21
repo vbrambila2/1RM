@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     fab: {
         background: '#00BFFF',
         color: '#F8F8F8',
+        '&:hover': {
+            backgroundColor: '#00ace6',
+        },
     },
 }));
 
