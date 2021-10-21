@@ -16,7 +16,7 @@ export const createMovement = (move) => async (dispatch) => {
     history.push('/')
     try {
         const { data } = await api.createMovement(move);
-
+        
         dispatch({ type: CREATE_MOVEMENT, payload: data })
     } catch (error) {
         console.log(error.message);
@@ -28,8 +28,7 @@ export const updateMovement = (id, move) => async (dispatch) => {
         const { data } = await api.updateMovement(id, move);
         
         dispatch ({ type: UPDATE_MOVEMENT, payload: data });
-
-       history.push('/')
+        history.push('/')
     } catch (error) {
         console.log(error.message);
     }
