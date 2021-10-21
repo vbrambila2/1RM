@@ -105,7 +105,7 @@ const PercentChart = (props) => {
                 <h1 className={classes.chartHeader} >Percent<div>Weight</div></h1>
                 <div>
                     {results.map((result) => (
-                    <div key={result[0]} className={classes.chartBox} >{result[0]}% <div>{result[1]}</div></div>
+                        <div key={result[0]} className={classes.chartBox} >{result[0]}% <div>{result[1]}</div></div>
                     ))}
                 </div>
             </div>
