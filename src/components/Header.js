@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '0px 1px 1px #006bb3',
         color: '#F8F8F8',
         textShadow: '1px 1px #000000',
-        fontFamily: 'Paytone One',
+        fontFamily: 'PT Sans Caption',
+        fontWeight: 'bold',
         fontSize: '36px',
         marginBottom: '20px',
         paddingTop: '20px',
@@ -25,6 +26,26 @@ const useStyles = makeStyles((theme) => ({
     },
     homeHeaderCaption: {
         fontSize: '15px'
+    },
+    addHeader: {
+        background: '#00BFFF',
+        textAlign: 'center',
+        boxShadow: '0px 1px 1px #006bb3',
+        color: '#F8F8F8',
+        textShadow: '1px 1px #000000',
+        fontFamily: 'PT Sans Caption',
+        fontSize: '36px',
+        marginBottom: '20px',
+        paddingTop: '20px',
+        paddingBottom: '10px',
+        textTransform: 'uppercase',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        zIndex: 9999
     },
     header: {
         background: '#00BFFF',
@@ -82,6 +103,26 @@ const useStyles = makeStyles((theme) => ({
                 backgroundColor: '#00ace6',
             },
         },
+        addHeader: {
+            background: '#00BFFF',
+            textAlign: 'center',
+            boxShadow: '0px 1px 1px #006bb3',
+            color: '#F8F8F8',
+            textShadow: '1px 1px #000000',
+            fontFamily: 'PT Sans Caption',
+            fontSize: '36',
+            marginBottom: '20px',
+            paddingTop: '20px',
+            paddingBottom: '10px',
+            textTransform: 'uppercase',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            zIndex: 9999
+        },
         header: {
             background: '#00BFFF',
             boxShadow: '0px 1px 1px #006bb3',
@@ -138,6 +179,19 @@ const Header = (props) => {
                 </div>
                 {title}
                 <div className={classes.fakeText}>----------------</div>
+            </div>
+        )
+    } else if (title === 'Add Movement') {
+        return (
+            <div className={classes.addHeader}>
+                <Button
+                    variant="contained"
+                    className={classes.homeButton}
+                    onClick={() => history.push("/")}>   
+                    Home
+                </Button>
+                {title}
+                <div className={classes.fakeText}>-------</div>
             </div>
         )
     } else {
