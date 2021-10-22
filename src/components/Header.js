@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '0px 1px 1px #006bb3',
         color: '#F8F8F8',
         textShadow: '1px 1px #000000',
-        fontFamily: 'PT Sans Caption',
+        fontFamily: 'Paytone One',
         fontSize: '36px',
         marginBottom: '20px',
         paddingTop: '20px',

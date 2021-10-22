@@ -18,7 +18,7 @@ const HomePage = () => {
   
    return (
        <div className={classes.homePageContent} >
-            <Header title={"One Rep Max"} titleCaption={"- Percentgae Calculator -"}/>
+            <Header title={"One Rep Max"} titleCaption={"- Percentage Calculator -"}/>
             <div>
                 <FetchedMovements />
                 <MoveButtons />
