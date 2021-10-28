@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '15px'
     },
     homeIcon: {
-
+        marginLeft: '10px',
+        marginRight: '10px'
     },
     addHeader: {
         background: '#00BFFF',
@@ -160,9 +161,11 @@ const Header = (props) => {
     if (url === '') {
         return (
             <div className={classes.homeHeader}>
-                {/* <div className={classes.homeIcon}> <FitnessCenterIcon /></div> */}
+                <div>
+                <FitnessCenterIcon className={classes.homeIcon} />
                 {title}
-                {/* <div className={classes.homeIcon}> <FitnessCenterIcon /></div> */}
+                <FitnessCenterIcon className={classes.homeIcon} />
+                </div>
                 <div className={classes.homeHeaderCaption}>{titleCaption}</div>
              </div>
         )
