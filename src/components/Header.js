@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router';
 import Button from '@material-ui/core/Button';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     },
     homeHeaderCaption: {
         fontSize: '15px'
+    },
+    homeIcon: {
+
     },
     addHeader: {
         background: '#00BFFF',
@@ -156,7 +160,9 @@ const Header = (props) => {
     if (url === '') {
         return (
             <div className={classes.homeHeader}>
+                {/* <div className={classes.homeIcon}> <FitnessCenterIcon /></div> */}
                 {title}
+                {/* <div className={classes.homeIcon}> <FitnessCenterIcon /></div> */}
                 <div className={classes.homeHeaderCaption}>{titleCaption}</div>
              </div>
         )

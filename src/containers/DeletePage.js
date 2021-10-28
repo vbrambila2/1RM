@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
         fontFamily: 'PT Sans Caption',
     },
     deleteMovementDiv: {
-        background: '#00BFFF',
+        background: '#0080ff',
         fontFamily: 'PT Sans Caption',
         fontSize: '18px',
         borderRadius: '10px',
