@@ -162,9 +162,9 @@ const Header = (props) => {
         return (
             <div className={classes.homeHeader}>
                 <div>
-                <FitnessCenterIcon className={classes.homeIcon} />
-                {title}
-                <FitnessCenterIcon className={classes.homeIcon} />
+                    <FitnessCenterIcon className={classes.homeIcon} />
+                    {title}
+                    <FitnessCenterIcon className={classes.homeIcon} />
                 </div>
                 <div className={classes.homeHeaderCaption}>{titleCaption}</div>
              </div>
