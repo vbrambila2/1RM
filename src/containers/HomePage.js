@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
        alignItems: 'center',
    }
 }));
- 
+
 const HomePage = () => {
    const classes = useStyles();
   
