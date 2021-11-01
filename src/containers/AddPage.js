@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import { createMovement } from '../actions';
 import { TextField, Button, InputAdornment } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@mui/icons-material/Add';
 
 const useStyles = makeStyles((theme) => ({
     addPage: {
