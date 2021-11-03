@@ -12,12 +12,7 @@ app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use('/movements', movementRoutes);
 
-var corsOptions = {
-    origin: 'https://my-one-rep.herokuapp.com/movements',
-    optionsSuccessStatus: 200 
-  }
-
-app.get('/', cors(corsOptions), (req, res) => {
+app.get('/', (req, res) => {
     res.send('Your one rep maxes, together');
 });
 
